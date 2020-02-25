@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+// import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 require('dotenv').config();
 
 console.log(require('dotenv').config());
@@ -25,6 +26,11 @@ export class MapContainer extends Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_MAP_API_KEY
-})(MapContainer);
+// export default GoogleApiWrapper({
+//   apiKey: process.env.REACT_APP_MAP_API_KEY
+// })(MapContainer);
+export default GoogleApiWrapper(
+  (props) => ({
+    apiKey: process.env.REACT_APP_MAP_API_KEY
+  }
+))(MapContainer);
